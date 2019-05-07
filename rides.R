@@ -62,11 +62,12 @@ rides.chicago$ride_category <- factor(rides.chicago$ride_category , levels = c("
 # set levels for day of week
 rides.chicago$dow <- factor(rides.chicago$dow , levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
+
 # trips by hour of day
 ggRideCountPerHour <- rides.chicago %>%
   ggplot(aes(x=ride_hour)) + 
   geom_bar() + 
-  facet_wrap(~dow) +
+  facet_grid(~dow) +
   theme_fivethirtyeight() +
   theme(axis.title = element_text()) +
   labs(title = "Rideshare Rides By Hour of Day",
